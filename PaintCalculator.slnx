@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="PaintCalculator/PaintCalculator.vcxproj" />
+  <Project Path="PaintCalculator/PaintCalculator.vcxproj" Id="ca634677-53d2-4eeb-bbdd-9c3309339621" />
 </Solution>

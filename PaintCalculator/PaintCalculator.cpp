@@ -6,7 +6,25 @@ using namespace std;
 
 int main()
 {
+	float surfaceArea;
+	int children;
+	int days;
+
 	cout << "Welcome to the Paint Calculator!" << endl;
+
+	cout << "Please enter the surface area to be painted: ";
+	cin >> surfaceArea;
+
+	cout << "Please enter the number of children in the room: ";
+	cin >> children;
+
+	cout << "Please enter the number of days required: ";
+	cin >> days;
+
+	cout << endl;
+	cout << "Surface area: " << surfaceArea << endl;
+	cout << "Number of children: " << children << endl;
+	cout << "Number of days: " << days << endl;
 
 	return 0;
 }
