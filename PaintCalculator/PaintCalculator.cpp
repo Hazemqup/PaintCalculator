@@ -3,8 +3,11 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>
+
 using namespace std;
 
+// Function to calculate the amount of paint required
 int calculatePaint(float surfaceArea, int children, int days)
 {
 	const double P = 0.004;
@@ -24,13 +27,22 @@ int calculatePaint(float surfaceArea, int children, int days)
 	return gallons;
 }
 
+// Function to calculate the total cost of paint
+double calculatePaint(int gallons, double pricePerGallon)
+{
+	return gallons * pricePerGallon;
+}
+
 int main()
 {
+	const double PRICE_PER_GALLON = 114.50;
+
 	float surfaceArea;
 	int children;
 	int days;
 
 	cout << "Welcome to the Paint Calculator!" << endl;
+	cout << "------------------------------------" << endl;
 
 	cout << "Please enter the surface area to be painted: ";
 	cin >> surfaceArea;
@@ -41,13 +53,44 @@ int main()
 	cout << "Please enter the number of days required: ";
 	cin >> days;
 
+	if (!cin || surfaceArea <= 0 || children < 0 || days <= 0)
+	{
+		cout << "Invalid input. Please enter a positive surface area "
+			<< "and number of days, and a non-negative number of children."
+			<< endl;
+		return 1;
+	}
+
 	int gallons = calculatePaint(surfaceArea, children, days);
 
+	double totalCost = calculatePaint(gallons, PRICE_PER_GALLON);
+
 	cout << endl;
+	cout << "-------------------------------------" << endl;
+	cout << "  PAINT ESTIMATE" << endl;
+	cout << "-------------------------------------" << endl;
+
+	
+	// Set the output format for floating-point numbers
 	cout << "Surface area: " << surfaceArea << endl;
 	cout << "Number of children: " << children << endl;
 	cout << "Number of days: " << days << endl;
+
+	cout << endl;
 	cout << "Paint required: " << gallons << " gallons" << endl;
+	cout << "Paint selected: Benjamin Moore Aura Interior Eggshell"
+		<< endl;
+
+	// Display prices with two decimal places
+	cout << fixed << setprecision(2);
+
+	cout << "Price per gallon: GBP "
+		<< PRICE_PER_GALLON << endl;
+
+	cout << "Estimated paint cost: GBP "
+		<< totalCost << endl;
+
+	cout << "----------------------------------------" << endl;
 
 	return 0;
 }
