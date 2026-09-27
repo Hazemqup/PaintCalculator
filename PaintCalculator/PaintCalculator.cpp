@@ -13,12 +13,13 @@ int calculatePaint(float surfaceArea, int children, int days)
 	double amount = ((P * children * surfaceArea) + W)
 		* (1.0 + 1.0 / days);
 	
-	int gallons = ceil(amount);
-
+	int gallons = static_cast<int>(ceil(amount));
+	//if the amount is a whole number, we need to add 1 to the gallons
 	if (amount == floor(amount))
 	{
-		gallons = (int)amount;
+		gallons++;
 	}
+
 
 	return gallons;
 }
