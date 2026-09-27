@@ -2,7 +2,26 @@
 //
 
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+int calculatePaint(float surfaceArea, int children, int days)
+{
+	const double P = 0.004;
+	const double W = 1.2;
+
+	double amount = ((P * children * surfaceArea) + W)
+		* (1.0 + 1.0 / days);
+	
+	int gallons = ceil(amount);
+
+	if (amount == floor(amount))
+	{
+		gallons = (int)amount;
+	}
+
+	return gallons;
+}
 
 int main()
 {
@@ -21,10 +40,13 @@ int main()
 	cout << "Please enter the number of days required: ";
 	cin >> days;
 
+	int gallons = calculatePaint(surfaceArea, children, days);
+
 	cout << endl;
 	cout << "Surface area: " << surfaceArea << endl;
 	cout << "Number of children: " << children << endl;
 	cout << "Number of days: " << days << endl;
+	cout << "Paint required: " << gallons << " gallons" << endl;
 
 	return 0;
 }
